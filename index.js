@@ -23,12 +23,16 @@ for(let i = 0; i < amountOfDrumButtons; i++) {
     let buttonHTML = this.innerHTML;
 
     makeSound(buttonHTML);
+
+    buttonAnimation(buttonHTML);
+
     }); 
 }
 
 //Detect Keyboard Press
 document.addEventListener("keydown", function(event) {
     makeSound(event.key);   
+    buttonAnimation(event.key);
 });
 
 function makeSound(key) {
@@ -71,4 +75,14 @@ function makeSound(key) {
         default:
             console.log(buttonHTML);
     };
+}
+
+function buttonAnimation(currentKey) {
+   let activeButton = document.querySelector("." + currentKey) //we need to concat to have access to the class
+   
+   activeButton.classList.add("pressed");
+
+   setTimeout(function() { //method to control animation time
+       activeButton.classList.remove("pressed");
+   }, 100);
 }
