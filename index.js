@@ -15,9 +15,10 @@ document.querySelector("button").addEventListener("click", function(){
 
 //All working, let's do the same for all buttons
 let amountOfDrumButtons = document.querySelectorAll(".drum").length;
+let audio = new Audio('/sounds/tom-1.mp3');
 
 for(let i = 0; i < amountOfDrumButtons; i++) {
     document.querySelectorAll(".drum")[i].addEventListener("click", function() {
-        alert("I got clicked!");  
+         audio.play();
       });
 }
